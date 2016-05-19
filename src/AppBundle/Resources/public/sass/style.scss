@@ -1,0 +1,196 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 18, 2015, 6:00:13 PM
+    Author     : student
+*/
+
+@import "../js/thirdparty/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import url(https://fonts.googleapis.com/css?family=Amaranth);
+
+body { padding-bottom: 70px; }
+
+nav {
+    a.navbar-brand {
+       color: white!important;
+       font-weight: bold;
+       > img {
+            width:60px;
+            position:relative;
+            top:-10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height:450px;
+}
+
+.row {
+    margin: 0 0 50px 0;
+}
+
+.row-fluid {
+    text-align:center;
+}
+.img-responsive{
+    margin:0 auto
+}
+
+p {
+    font: 20px Amaranth;
+}
+
+
+
+#main {
+    margin: 90px 0 0 0;
+    #home {
+        h1 {
+            margin: 0 0 20px 0;
+            font: 50px monospace;
+            text-align:center;
+        }
+        p {
+            margin: 20px auto;
+        }
+        img {
+            max-height: 500px;
+        }
+    }
+    #community {
+        h1 {
+            margin: 0 0 20px 0;
+            font: 50px monospace;
+            text-align:center;
+        }
+
+        img {
+            max-height: 500px;
+            margin: 20px auto;      
+        }
+    }
+    #skill {
+        h1 {
+            width: 50%;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        p {
+            margin: 20px auto;
+        }
+        img {
+            width: 100px;
+            float: right;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        .label {
+            font-size: 25px;
+            margin:20px 20px 0 0;
+            display:inline-block;
+        }
+    }
+    
+    #jobs {
+        h1 {
+            width: 50%;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        img {
+            width: 100px;
+            float: right;
+            display: inline-block;
+            margin-top: 30px;
+        }
+    }
+    
+    div.row {
+         margin: 0 15px 0 0;
+         div.well {
+            > h2 {
+                font-size: 20px;
+                margin: 0px;
+                padding: 0;
+            }
+            > p {
+                margin:auto;
+                text-align: right;
+                font-size: 20px;
+            }
+            h2.position {
+                clear: both;
+                font-size: 20px
+            }
+            .content {
+                clear:both;
+                position: relative;
+                top: 10px;
+                font-size: 20px;
+            }
+         }
+    }
+    
+    #about {
+        .embed-responsive {
+            margin: 0 0 30px 0;
+        }
+    }
+    
+    #preloader {
+        h1 {
+            text-align:center; 
+        }
+        img {
+            margin: 15px auto;
+        }
+    }
+    
+}
+
+footer {
+    width:100%;
+    height:30px;
+    background:black;
+    position:fixed;
+    bottom:0;
+    > div {
+        position:relative;
+        top:8px;
+        left:8.33333%;
+        > a {
+        color:white;
+        font-weight:bold;
+        margin:0 0 0 30px;
+        }
+        &:first-of-type {
+            margin:0;
+        }
+    }
+}
+
+@media screen and (max-width: 993px) {
+    #main {
+        margin: 50px 0 0 0;
+        #jobs {
+            #job-list {
+                div.row {
+                    div.well {
+                       p {
+                           text-align:left;  
+                           padding:0;
+                       }
+                    }
+               }
+            }   
+        }
+    }
+    footer {
+        display:none;
+    }
+}

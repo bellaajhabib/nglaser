@@ -1,0 +1,30 @@
+
+pages:
+    type:     rest
+    resource: AppBundle\Controller\Api\PageController
+    name_prefix: api_
+
+community:
+    type:     rest
+    resource: AppBundle\Controller\Api\CommunityController
+    name_prefix: api_
+
+job:
+    type:     rest
+    resource: AppBundle\Controller\Api\JobController
+    name_prefix: api_
+
+project:
+    type:     rest
+    resource: AppBundle\Controller\Api\ProjectController
+    name_prefix: api_
+
+skill:
+    type:     rest
+    resource: AppBundle\Controller\Api\SkillController
+    name_prefix: api_
+
+setting:
+    type:     rest
+    resource: AppBundle\Controller\Api\SettingController
+    name_prefix: api_

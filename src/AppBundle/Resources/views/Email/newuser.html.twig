@@ -1,0 +1,10 @@
+<h1>Congrats your a new user</h1>
+
+<ul>
+    <li>User Name: {{ email }}</li>
+    <li>Password: {{ password|raw }}</li>
+</ul>
+
+<p> 
+    <a href="{{ url('login_route') }}">Click Here</a> to login.
+</p>

@@ -1,0 +1,79 @@
+## YAML Template.
+---
+services:
+    app.repository.user:
+        class: AppBundle\Repository\UserRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\User]
+    app.repository.project:
+        class: AppBundle\Repository\ProjectRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Project]
+    app.repository.community:
+        class: AppBundle\Repository\CommunityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Community]
+    app.repository.skill:
+        class: AppBundle\Repository\SkillRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Skill]
+    app.repository.setting:
+        class: AppBundle\Repository\SettingRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Setting]
+    app.repository.page:
+        class: AppBundle\Repository\PageRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Page]
+    app.repository.job:
+        class: AppBundle\Repository\JobRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        public: true
+        arguments: [AppBundle\Entity\Job]
+        
+        
+        
+        
+    app.validator.projectpositionduplicate:
+        class: AppBundle\Validator\Constraints\PositionDuplicateValidator
+        arguments: [@app.repository.project]
+        tags:
+            - { name: validator.constraint_validator, alias: project_position_duplicate }
+    app.validator.communitypositionduplicate:
+        class: AppBundle\Validator\Constraints\PositionDuplicateValidator
+        arguments: [@app.repository.community]
+        tags:
+            - { name: validator.constraint_validator, alias: community_position_duplicate }
+    app.validator.skillpositionduplicate:
+        class: AppBundle\Validator\Constraints\SkillPositionValidator
+        arguments: [@app.repository.skill]
+        tags:
+            - { name: validator.constraint_validator, alias: skill_position_duplicate_validator }
+
+
+    app.menu_listener:
+        class: AppBundle\EventListener\Sonata\SonataAdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sonata.admin.event.configure.menu.sidebar, method: addMenuItems }
+
+
+
+
+    app.factory.s3Client:
+        class: AppBundle\Factory\S3ClientFactory
+        factory: [AppBundle\Factory\S3ClientFactory, getS3Client]
+        public: true
+        arguments: ["%amazon_s3_key%","%amazon_s3_secret%","%amazon_s3_region%","%amazon_s3_version%"]

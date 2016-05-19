@@ -1,0 +1,88 @@
+## YAML Template.
+---
+services:
+    app.admin.user:
+        class: AppBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Admin", label: "Users" }
+        arguments:
+            - ~
+            - AppBundle\Entity\User
+            - AppBundle:Admin\User
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
+    app.admin.job:
+        class: AppBundle\Admin\JobAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Site", label: "Jobs" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Job
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
+    app.admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Site", label: "Projects" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Project
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
+    app.admin.community:
+        class: AppBundle\Admin\CommunityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Site", label: "Community" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Community
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
+    app.admin.pages:
+        class: AppBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Site", label: "Page" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Page
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    
+    app.admin.jobs:
+        class: AppBundle\Admin\SkillAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Site", label: "Skill" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Skill
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+             
+    app.admin.skill:
+        class: AppBundle\Admin\SettingAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm }
+        arguments:
+            - ~
+            - AppBundle\Entity\Setting
+            - AppBundle:Admin\Setting
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+            
+
+    app.block.dashboard:
+        class: AppBundle\Admin\Block\SettingBlock
+        arguments:
+            - sonata.block.service.text
+            - @templating
+        tags:
+            - { name: sonata.block }
